@@ -1,0 +1,29 @@
+pokemonapi.landing:
+  path: /landing
+  defaults:
+    _controller: \Drupal\pokemonapi\Controller\RoutingController::landingPage
+    _title: 'Pokemon Battle'
+  requirements:
+    _access: 'TRUE'
+  options:
+    no_cache: 'TRUE'
+
+pokemonapi.user.home:
+  path: /pokemon
+  defaults:
+    _controller: \Drupal\pokemonapi\Controller\RoutingController::homePage
+    _title: 'Pokemon Battle'
+  requirements:
+    _access: 'TRUE'
+  options:
+    no_cache: 'TRUE'
+
+pokemonapi.user.favorites:
+  path: /favorites
+  defaults:
+    _controller: \Drupal\pokemonapi\Controller\RoutingController::favoritesPage
+    _title: 'Pokemon Battle'
+  requirements:
+    _access: 'TRUE'
+  options:
+    no_cache: 'TRUE'

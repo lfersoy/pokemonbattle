@@ -1,0 +1,6 @@
+authzero_integration.main.settings:
+  title: 'AuthZero Settings'
+  route_name: authzero_integration.settings
+  description: "AuthZero Integration Settings"
+  parent: system.admin_config_development
+  weight: 10

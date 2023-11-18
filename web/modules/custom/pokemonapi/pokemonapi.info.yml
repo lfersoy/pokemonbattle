@@ -1,0 +1,5 @@
+name: Pokemon API
+description: 'Provides an integration with pokeapi API'
+core: 10.x
+type: module
+core_version_requirement: ^9 || ^10

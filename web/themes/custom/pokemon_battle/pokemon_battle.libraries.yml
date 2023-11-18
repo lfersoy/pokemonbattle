@@ -1,0 +1,9 @@
+global-styling:
+  css:
+    theme:
+      css/styles.css: {}
+  js:
+    js/pokemonbattle_home.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery

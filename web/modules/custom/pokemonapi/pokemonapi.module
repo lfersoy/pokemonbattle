@@ -1,0 +1,44 @@
+<?php
+
+/**
+ * @file
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function pokemonapi_theme($existing, $type, $theme, $path)
+{
+  $theme_handler = \Drupal::service('theme_handler');
+  $path_theme = $theme_handler->getTheme('pokemon_battle')->getPath();
+
+  return [
+    'pokemonbattle_landingpage' => [
+      'variables' => [],
+      'path' => $path_theme,
+      'template' => 'templates/page/pokemonbattle-landing-page',
+    ],
+    'pokemonbattle_homepage' => [
+      'variables' => [
+        'pokemons' => [],
+        'pokemon_form' => [],
+      ],
+      'path' => $path_theme,
+      'template' => 'templates/page/pokemonbattle-home-page',
+    ],
+    'pokemonbattle_favoritespage' => [
+      'variables' => [
+        'pokemons' => [],
+        'pokemon_form' => [],
+      ],
+      'path' => $path_theme,
+      'template' => 'templates/page/pokemonbattle-favorites-page',
+    ],
+  ];
+}
+
+/**
+ *  hook_preprocess_page().
+ */
+function pokemonapi_preprocess_page(&$variables) {
+}

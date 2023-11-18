@@ -1,0 +1,10 @@
+name: Pokemon Battle
+type: theme
+description: 'Basic structure for a Bootstrap Barrio SubTheme.'
+version: VERSION
+core: 10.x
+core_version_requirement: ^9 || ^10
+base theme: "stark"
+
+libraries:
+  - pokemon_battle/global-styling

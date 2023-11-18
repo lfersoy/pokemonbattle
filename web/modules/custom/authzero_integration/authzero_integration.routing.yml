@@ -1,0 +1,42 @@
+
+authzero_integration.login:
+  path: '/auth0/login'
+  defaults:
+    _controller: '\Drupal\authzero_integration\Controller\AuthZeroController::login'
+    _title: 'AuthZero Login'
+  requirements:
+    _access: 'TRUE'
+  options:
+    no_cache: 'TRUE'
+    _maintenance_access: 'TRUE'
+
+authzero_integration.logout:
+  path: '/auth0/logout'
+  defaults:
+    _controller: '\Drupal\authzero_integration\Controller\AuthZeroController::logout'
+    _title: 'AuthZero Logout'
+  requirements:
+    _access: 'TRUE'
+  options:
+    no_cache: 'TRUE'
+
+authzero_integration.callback:
+  path: '/auth0/callback'
+  defaults:
+    _controller: '\Drupal\authzero_integration\Controller\AuthZeroController::auth0Callback'
+    _title: 'AuthZero Callback'
+  requirements:
+    _access: 'TRUE'
+  options:
+    no_cache: 'TRUE'
+    _maintenance_access: 'TRUE'
+
+authzero_integration.settings:
+  path: '/admin/config/auth0/settings'
+  defaults:
+    _form: '\Drupal\authzero_integration\Form\AuthZeroSettingsForm'
+    _title: 'AuthZero Settings'
+  requirements:
+    _permission: 'access authzero settings'
+  options:
+    _admin_route: TRUE

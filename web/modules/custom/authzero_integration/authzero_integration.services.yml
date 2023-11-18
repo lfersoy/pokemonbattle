@@ -1,0 +1,10 @@
+services:
+  authzero_integration.main_service:
+    class: Drupal\authzero_integration\AuthZeroService
+    arguments: ['@config.factory']
+
+  authzero_integration.route_subscriber:
+    class: Drupal\authzero_integration\Routing\RouteSubscriber
+    arguments: ['@authzero_integration.main_service']
+    tags:
+      - { name: event_subscriber, priority: 150 }

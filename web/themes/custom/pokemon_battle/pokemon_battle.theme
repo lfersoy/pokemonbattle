@@ -1,0 +1,13 @@
+<?php
+
+/**
+ * @file
+ */
+
+/**
+ * Implements hook_preprocess_page().
+ *
+ * Call Pokemon API
+ */
+function pokemon_battle_preprocess_page(&$variables) {
+}
