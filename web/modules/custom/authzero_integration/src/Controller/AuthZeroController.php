@@ -150,9 +150,15 @@ class AuthZeroController extends ControllerBase {
    *   Logout user from drupal and redirect to auth0 logout.
    */
   public function logout(): RedirectResponse {
+
     if (!empty($this->account->getEmail())) {
+      $frontUrl = Url::fromRoute('<front>', [], ['absolute' => TRUE]);
+      $auth0 = $this->authZeroService->getInstance();
+      // Logout from drupal plattform.
       user_logout();
-      return $this->logoutUser();
+      // Logout from autho0.
+      //$logoutUrl = $auth0->logout($frontUrl->toString());
+      return new RedirectResponse($frontUrl->toString());
     }
     else {
       return new RedirectResponse($this->authZeroService->getPostLoginRedirectLink());

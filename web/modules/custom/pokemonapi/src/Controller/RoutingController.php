@@ -155,6 +155,12 @@ class RoutingController extends ControllerBase {
    *
    */
   public function landingPage() {
+
+    if (!$this->account->isAnonymous()) {
+      $frontUrl = Url::fromRoute('pokemonapi.user.home')->toString();
+      return new RedirectResponse($frontUrl);
+    }
+
     // Build page.
     $build['page'] = [
       '#theme'  => 'pokemonbattle_landingpage',
