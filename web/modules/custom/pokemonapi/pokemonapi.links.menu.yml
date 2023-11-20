@@ -1,0 +1,6 @@
+pokemonapi.main.settings:
+  title: 'Pokemon API Settings'
+  route_name: pokemonapi.settings
+  description: "Pokemon API V2 Integration Settings"
+  parent: system.admin_config_development
+  weight: 10

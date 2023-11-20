@@ -37,6 +37,6 @@ authzero_integration.settings:
     _form: '\Drupal\authzero_integration\Form\AuthZeroSettingsForm'
     _title: 'AuthZero Settings'
   requirements:
-    _permission: 'access authzero settings'
+    _permission: 'access administration pages'
   options:
     _admin_route: TRUE

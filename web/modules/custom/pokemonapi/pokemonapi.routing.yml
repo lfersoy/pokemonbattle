@@ -27,3 +27,21 @@ pokemonapi.user.favorites:
     _access: 'TRUE'
   options:
     no_cache: 'TRUE'
+
+pokemonapi.battle.ajax:
+  path: /pokemonapi/battle
+  defaults:
+    _controller: '\Drupal\pokemonapi\Controller\RoutingController::battleModal'
+  methods: [POST]
+  requirements:
+    _permission: 'access content'
+
+pokemonapi.settings:
+  path: '/admin/config/pokemonapi/settings'
+  defaults:
+    _form: '\Drupal\pokemonapi\Form\PokemonApiConfigForm'
+    _title: 'Pokemon API Settings'
+  requirements:
+    _permission: 'access administration pages'
+  options:
+    _admin_route: TRUE

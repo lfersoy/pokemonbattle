@@ -34,6 +34,14 @@ function pokemonapi_theme($existing, $type, $theme, $path)
       'path' => $path_theme,
       'template' => 'templates/page/pokemonbattle-favorites-page',
     ],
+    'pokemonbattle_battlemodale' => [
+      'variables' => [
+        'pokemons' => [],
+        'winner' => null,
+      ],
+      'path' => $path_theme,
+      'template' => 'templates/modal/pokemonbattle-battle-modal',
+    ],
   ];
 }
 

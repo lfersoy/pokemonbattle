@@ -106,6 +106,13 @@ class AuthZeroSettingsForm extends ConfigFormBase {
    */
   public function validateForm(array &$form, FormStateInterface $form_state) {
     parent::validateForm($form, $form_state);
+
+    // Validate if route exists.
+    $route_name = $form_state->getValue('post_login_route');
+    $route_exists = $this->routeProvider->getRoutesByNames([$route_name]);
+    if (empty($route_exists)) {
+      $form_state->setErrorByName('post_login_route', $this->t('Route name does not exist.'));
+    }
   }
 
   /**

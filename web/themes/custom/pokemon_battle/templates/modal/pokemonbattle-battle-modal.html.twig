@@ -1,0 +1,47 @@
+<div class="fixed z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+  <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+    <div class="fixed inset-0 bg-red-100 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
+    <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+    <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle">
+      <div class="px-4 pt-5 pb-4 sm:p-6 sm:pb-4 bg-gradient-to-b from-red-500 via-gray-400 to-white">
+        <div class="sm:flex sm:items-start">
+          <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+            <div class="mt-2 grid grid-cols-2 gap-4">
+              {% for pokemon in pokemons %}
+                <div class="p-4 rounded-lg">
+                  <img src="{{pokemon.image_url}}" alt="{{pokemon.name}}" class="w-full h-64 object-cover rounded-lg">
+                  <div class="mt-4 text-center">
+                    <strong>{{pokemon.name}}</strong>
+                  </div>
+                  <table class="mt-4 w-full text-left">
+                    {% for stat in pokemon.stats %}
+                      <tr>
+                        <th>{{stat.name}}</th>
+                        <td>
+                          <span class="{{stat.winner ? 'text-green-500' : 'text-red-500'}}">{{stat.value}}</span>
+                        </td>
+                      </tr>
+                    {% endfor %}
+                    <!-- Add more attributes as needed -->
+                  </table>
+                  <div class="mt-4">
+                    <strong>Score:</strong> <span class="{{winner == pokemon.name ? 'text-green-500' : 'text-red-500'}}">{{pokemon.score}}</span>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+            <div class="mt-4 text-center">
+              <strong>Winner:</strong> <span class="text-yellow-500">{{winner}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+        <button type="button" class="close-battle-modal w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -5,5 +5,7 @@ global-styling:
   js:
     js/pokemonbattle_home.js: {}
   dependencies:
-    - core/drupal
     - core/jquery
+    - core/once
+    - core/drupal
+    - core/drupalSettings
