@@ -122,7 +122,7 @@ class AuthZeroController extends ControllerBase {
               $newUser->setPassword($user_credentias['email'] . '.' . time());
               $newUser->enforceIsNew();
               $newUser->setEmail($user_credentias['email']);
-              $newUser->setUsername($user_credentias['name']);
+              $newUser->setUsername($user_credentias['email']);
               $newUser->activate();
               //Save user account
               $newUser->save();
@@ -135,8 +135,9 @@ class AuthZeroController extends ControllerBase {
             }
           }
         }
-      } catch (\Exception $e) {
-        return new RedirectResponse($frontUrl);
+      }
+      catch (\Exception $e) {
+        \Drupal::logger(__FUNCTION__)->error($e->getMessage());
       }
     }
 
