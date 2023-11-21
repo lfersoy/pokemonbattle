@@ -15,7 +15,7 @@ use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Request;
-use GuzzleHttp\Promise;
+use GuzzleHttp\Promise\Utils;
 
 /**
  *
@@ -95,7 +95,7 @@ class RoutingController extends ControllerBase {
         $promises[] = $client->sendAsync($request);
       }
 
-      $responses = Promise\settle($promises)->wait();
+      $responses = Utils::settle($promises)->wait();
 
       foreach ($responses as $promise) {
 
@@ -231,7 +231,7 @@ class RoutingController extends ControllerBase {
       $promises[] = $client->sendAsync($queryRequest);
     }
 
-    $responses = Promise\settle($promises)->wait();
+    $responses = Utils::settle($promises)->wait();
 
     foreach ($responses as $key => $promise) {
 
