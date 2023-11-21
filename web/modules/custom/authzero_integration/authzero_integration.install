@@ -1,0 +1,31 @@
+<?php
+
+/**
+ * @file
+ */
+
+/**
+ * Implements hook_schema().
+ */
+function authzero_integration_schema() {
+  $schema = [];
+  $schema['authzero_integration_tokens'] = [
+    'fields' => [
+      'id' => [
+        'type' => 'serial',
+        'not null' => TRUE,
+        'description' => 'Primary Key: Unique person ID.',
+      ],
+      'type' => [
+        'type' => 'varchar',
+        'length' => 50,
+      ],
+      'value' => [
+        'type' => 'text',
+        'size' => 'big',
+      ],
+    ],
+    'primary key' => ['id'],
+  ];
+  return $schema;
+}
